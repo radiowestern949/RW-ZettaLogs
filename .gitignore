@@ -1,0 +1,5 @@
+log/
+scripts/
+stderr.txt
+stdout.txt
+tests/vendor
