@@ -50,7 +50,7 @@
         }
 
         function trim_unmatched_buffer(){
-            $this->buffer = trim(preg_replace($this->REGEX_PATTERN,'',$this->buffer));
+            $this->buffer = (preg_replace($this->REGEX_PATTERN,'',$this->buffer));
         }
 
         function count_xmls():int{
@@ -76,7 +76,13 @@
                     $process_logger->write_log("***********************************\nBROKEN XML \n $xml_string \n STRIKE $this->strikes");
 		    foreach($errors as $error){
 			//$process_logger->write_log("--------\n$error\n--------");
-			print_r($error);
+			//print_r($error);
+			$process_logger->write_log("level $error->level");
+			$process_logger->write_log("code $error->code");
+			$process_logger->write_log("column $error->column");
+			$process_logger->write_log("message $error->message");
+			$process_logger->write_log("file $error->file");
+			$process_logger->write_log("line $error->line");
 		    }
 		    libxml_clear_errors();
                     if($this->strikes > 3){
