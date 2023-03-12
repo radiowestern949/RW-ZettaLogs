@@ -34,7 +34,7 @@
             if(filesize(self::$current_filepath) > 1000000)
             {
                 self::$file_number += 1;
-                fclose(self::$current_filestream);
+                @fclose(self::$current_filestream);
                 self::$current_filepath = self::$foldername . "/" . self::$filename_prefix . date('Y-m-d') . '_' . self::$file_number . '.log';
             }
 
@@ -42,7 +42,7 @@
             if(!file_exists(self::$current_filepath) && self::$current_filestream != FALSE)
             {
                 self::$file_number = 1;
-                fclose(self::$current_filestream);
+                @fclose(self::$current_filestream);
             }
 
             self::$current_filepath = self::$foldername . "/" . self::$filename_prefix . date('Y-m-d') . '_' . self::$file_number . '.log';

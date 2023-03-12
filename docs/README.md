@@ -1,5 +1,10 @@
 # ZettaLogger.php
 
+## BUGS
+1. It seems like that the `ProcessLogger` is not 
+	* Updating the filesize correctly
+	* Closing the old log files entirely. This would explain why the `daemon service` memory consumption increases over time. It almost seems like it's increasing in the exact value as the `log` folder size.
+
 ## NGINX configuration for connecting outside world to TCP socket-server via Nginx (and also for logging)
 1. `$sudo mkdir -pv /var/log/nginx/zetta_logger/`
 2. `$sudo nano /etc/nginx/customAPI/zetta_logger`

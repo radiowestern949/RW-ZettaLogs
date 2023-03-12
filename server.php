@@ -19,7 +19,7 @@
 
 	$server_socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	$process_logger->write_log("Socket created");
-	socket_bind($server_socket, 0, PORT);
+	while(!socket_bind($server_socket, 0, PORT)){;}
 	$process_logger->write_log("Socket bound to port " . PORT);
 	socket_listen($server_socket);
 	$process_logger->write_log("Socket listening...");
